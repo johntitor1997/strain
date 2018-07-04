@@ -1,0 +1,91 @@
+System        =  system_name
+
+ISMEAR        =      -5           ! -5:Tetrahedron,  0:Gaussian,  N>0:Methfessel-Paxton
+ICHARG        =      2           ! 1:from CHGCAR,  2:Atomic,  11:from CHGCAR and non-scf calc.
+#NBANDS        =      40           ! Actual number of bands in the calculation
+NELM          =      60           ! Maximum number of electronic steps
+ALGO          =  Normal           ! Normal or Fast or Damped
+LREAL         =  .FALSE.          ! On:real-space, .FALSE.: reciprocal space.
+AMIX          =       0.4         ! Linear mixing parameter: Default 0.4
+#IMIX          =       1           ! 1:Kerker  4:Pulay or Broyden
+#PREC          =    High           ! Normal or High
+ENCUT         =     500.0         ! Cutoff energy for the planewave basis set in eV.
+GGA_COMPAT    =  .FALSE.          ! apply spherical cutoff on grad
+EDIFF         =       1.0E-5      ! Break condition for electronic SCF loop
+EDIFFG        =      -5.0E-2      ! Break condition for ionic relaxation loop
+LWAVE         =  .FALSE.          ! Whether WAVECAR is written or not at the end of a run.
+LCHARG        =  .FALSE.          ! Whether CHGCAR and CHG are written or not.
+LVTOT         =  .FALSE.          ! Whether LOCPOT is written or not.
+LVHAR         =  .FALSE.
+NCORE         =       1           !
+KPAR          =       1           !
+
+# Geometric Optimization
+#NSW           =     500           ! Maximum number of ionic steps.
+#ISIF          =       2           ! Which degrees-of-freedom are allowed to change?
+#IBRION        =       2           ! How are the ions updated and moved?
+#MAXMIX        =      80
+
+# Molecylar Dynamics
+#NSW           =    1000           ! Maximum number of ionic steps.
+#IBRION        =       0           ! How are the ions updated and moved?  -1:No  0:MD  2:CG
+#ISIF          =       0           ! Which degrees-of-freedom are allowed to change? When MD run, 0.
+#POTIM         =       1.0         ! Time step (fs) in MD calculations.
+#SMASS         =      -1           ! It controls the velocities during an ab-initio molecular dynamics.
+#TEBEG         =    3000           ! Start temperature for MD (K)
+#TEEND         =     300           ! Final temperature for MD (K)
+#MAXMIX        =      80
+
+# Density of States (DOS)
+#NEDOS         =    1000           ! Number of energy grids
+#EMIN          =     -10.0         ! Lower boundary of the energy range (eV)
+#EMAX          =     +10.0         ! Upper boundary of the energy range (eV)
+
+# Projected-DOS
+#LORBIT        =      12
+
+# Dipole corrections
+#LDIPOL        =   .TRUE.          ! Dipole-dipole interaction correction to the potential.
+#IDIPOL        =       3           ! Direction imposed on dipole corrections.
+#DIPOL         = 0.0  0.0  0.5
+
+#----------------------------------------------------------------------------------#
+
+# Spin polarization (Collinear calculations)
+#ISPIN         =       2
+
+# Initial magnetic moment for each atom
+#MAGMOM        =  15*1.0  15*-1.0  2*0.0
+
+# Spin-Orbit interactions (Non-collinear calculations)
+#LSORBIT       =   .TRUE.
+
+# XC functional type in generalized gradient approximation (GGA)
+GGA           =      PE           ! 91:PW91, PE:PBE, RP:revPBE, AM:AM05, PS:PBEsol
+
+# Approximate vdW correction methods
+#IVDW          =     10            ! 10:D2, 11:D3-G, 12:D3-BJ, 20:TS, etc...
+
+# vdW-DF2
+#LUSE_VDW      =   .TRUE.
+#GGA           =      ML
+#Zab_vdW       =      -1.8867
+#AGGAC         =       0.0000
+
+# HSE06-type hybrid functional
+#LHFCALC       =   .TRUE.
+#HFSCREEN      =       0.2
+
+# B3LYP-type hybrid functional
+#LHFCALC       =   .TRUE.
+#GGA           =      B3
+#AEXX          =       0.2
+#AGGAX         =       0.72
+#AGGAC         =       0.81
+#ALDAC         =       0.19
+
+# Hartree-Fock
+#LHFCALC       =   .TRUE.
+#AEXX          =       1.0
+#ALDAC         =       0.0
+#AGGAC         =       0.0
